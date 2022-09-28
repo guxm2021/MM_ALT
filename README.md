@@ -54,6 +54,46 @@ cd fairseq
 pip install --editable ./
 ```
 
+## Datasets
+### DSing Dataset
+[DSing dataset](https://www.isca-speech.org/archive_v0/Interspeech_2019/pdfs/2378.pdf) is one of the most popular singing datasets. To download and prepare this dataset, we follow its github website https://github.com/groadabike/Kaldi-Dsing-task.
+
+The resulting folder should be organized as:
+```
+{DSing_ROOT}
+├── dev
+├── test
+├── train1
+├── train3
+├── train30
+```
+
+### N20EM Dataset
+N20EM dataset is curated by ourselves for our multimodal ALT task. The dataset will be released soon.
+
+The resulting folder should be organized as:
+```
+{N20EM_ROOT}
+├── data
+    ├── id1
+        ├── audio.wav
+        ├── video.mp4
+        ├── imu.csv
+        ├── accomp.wav
+    ├── id2
+    ├── ...
+├── meta_data.json
+```
+
+NOTE: Please make sure the audio input to model is 16 kHz and has mono-channel. The video input to model is 25 fps.
+
+## Training and Evaluation
+We follow the internal logic of SpeechBrain, you can run experiments in this way:
+```
+cd <dataset>/<task>
+python experiment.py params.yaml
+```
+You may need to create csv files according to our guidance in `<dataset>/<task>`. The results will be saved in the `output_folder` specified in the yaml file. Both detailed logs and experiment outputs are saved there. Furthermore, less verbose logs are output to stdout.
 
 ## Citation
 If you use MM-ALT or this codebase in your own work, please cite our paper:
