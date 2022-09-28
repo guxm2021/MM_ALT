@@ -60,7 +60,7 @@ pip install --editable ./
 
 The resulting folder should be organized as:
 ```
-{DSing_ROOT}
+/path/to/DSing
 ├── dev
 ├── test
 ├── train1
@@ -73,7 +73,7 @@ N20EM dataset is curated by ourselves for our multimodal ALT task. The dataset w
 
 The resulting folder should be organized as:
 ```
-{N20EM_ROOT}
+/path/to/N20EM
 ├── data
     ├── id1
         ├── audio.wav
