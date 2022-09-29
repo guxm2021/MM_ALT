@@ -9,9 +9,3 @@ python main.py /path/to/IMU_VAD_data
 ```
 
 `/path/to/IMU_VAD_data` is the path to save data for the task of Voice Activity Detection from IMU.
-
-
-## Visualization
-<p align="center">
-<img src="../../assets/imu_vis.png" alt="" data-canonical-src="../../assets/imu_vis.png" width="50%"/>
-</p>
