@@ -1,8 +1,8 @@
-# Lryic LipReading with N20EM
+# Lryic Lip Reading with N20EM
 This sub-project contains recipes for training video-only ALT system for the N20EM Dataset. We assume you have downloaded and pre-processed N20EM dataset. The N20EM dataset is saved at `/path/to/n20em`.
 
 ## Prerequisites
-Please refer to `recipes/N20EM/LM/README.md` to train and save language model before running following experiments. The trained RNNLM is saved at `/path/to/RNNLM`.
+Please refer to `N20EM/LM/README.md` to train and save language model before running following experiments. The trained RNNLM is saved at `/path/to/RNNLM`.
 
 ## Usage
 
