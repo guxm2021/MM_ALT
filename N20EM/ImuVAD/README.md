@@ -13,5 +13,5 @@ python main.py /path/to/IMU_VAD_data
 
 ## Visualization
 <p align="center">
-<img src="../../assets/imu_vis.png" alt="" data-canonical-src="../../assets/imu_vis.png" width="100%"/>
+<img src="../../assets/imu_vis.png" alt="" data-canonical-src="../../assets/imu_vis.png" width="50%"/>
 </p>
