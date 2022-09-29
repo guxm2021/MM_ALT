@@ -335,7 +335,7 @@ if __name__ == "__main__":
     train_splits = ['train1', 'train3', 'train30'],
     dev_splits = ['dev'],
     test_splits = ['test'],
-    dur_threshold=args.dur_threshold,
+    dur_threshold=args.duration_threshold,
     select_n_sentences=None,
     skip_prep=False,
 )

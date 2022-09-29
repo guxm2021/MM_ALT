@@ -7,7 +7,7 @@ save_folder: !ref <output_folder>/save
 train_log: !ref <output_folder>/train_log.txt
 
 # Training parameters
-number_of_epochs: 20
+number_of_epochs: 5 # 20
 batch_size: 40
 lr: 0.001
 accu_steps: 1 # Gradient accumulation to simulate large batch training

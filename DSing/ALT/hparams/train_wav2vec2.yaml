@@ -3,8 +3,8 @@ seed: 1234
 __set_seed: !apply:torch.manual_seed [!ref <seed>]
 attempt: 1
 output_folder: !ref results/train_wav2vec2_attempt<attempt>/<seed>
-dur_threshold: 28    # filter the duration 
-csv_folder: !ref data/<dur_threshold>
+duration_threshold: 28    # filter the duration 
+csv_folder: !ref data/<duration_threshold>
 wer_file: !ref <output_folder>/wer.txt
 save_folder: !ref <output_folder>/save
 train_log: !ref <output_folder>/train_log.txt
