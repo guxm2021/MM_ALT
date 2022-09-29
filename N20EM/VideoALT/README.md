@@ -4,7 +4,7 @@ This sub-project contains recipes for training video-only ALT system for the N20
 ## Prerequisites
 Please refer to `N20EM/LM/README.md` to train and save language model before running following experiments. The trained RNNLM is saved at `/path/to/RNNLM`.
 
-## Usage
+## How to run
 
 1. Prepare N20EM dataset, run:
 ```
