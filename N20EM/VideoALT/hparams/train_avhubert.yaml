@@ -2,46 +2,40 @@
 seed: 1234
 __set_seed: !apply:torch.manual_seed [!ref <seed>]
 attempt: 1
-output_folder: !ref results/train_wav2vec2_attempt<attempt>/<seed>
-duration_threshold: 28    # filter the duration 
-csv_folder: !ref data/<duration_threshold>
+output_folder: !ref results/train_avhubert_attempt<attempt>/<seed>
 wer_file: !ref <output_folder>/wer.txt
 save_folder: !ref <output_folder>/save
 train_log: !ref <output_folder>/train_log.txt
 
-# URL for the biggest Fairseq english wav2vec2 model.
-wav2vec2_hub: facebook/wav2vec2-large-960h-lv60-self
-pretrain: False
-pretrain_folder: ../save_model
-save_model: True
-save_model_folder: ../save_model
 label_encoder: ../label_encoder.txt
-
 # Data files
-data_folder: !PLACEHOLDER # e,g./path/to/DSing
+data_folder: !PLACEHOLDER # e,g./path/to/n20em
 # noise/ris dataset will automatically be downloaded
 data_folder_rirs: !ref <data_folder>
-train_splits: ["train30"] #, "train1", "train3"]
-dev_splits: ["dev"]
-test_splits: ["test"]
-skip_prep: False
+
+save_model: False
+save_model_folder: pools/clean
+
 ckpt_interval_minutes: 25 # save checkpoint every N min
-train_csv: !ref <csv_folder>/train30.csv
-valid_csv: !ref <csv_folder>/dev.csv
+csv_folder: data/songs
+train_csv: !ref <csv_folder>/n20em_train.csv
+valid_csv: !ref <csv_folder>/n20em_valid.csv
 test_csv:
-   - !ref <csv_folder>/test.csv
-   - !ref <csv_folder>/dev.csv
+   - !ref <csv_folder>/n20em_test.csv
+   - !ref <csv_folder>/n20em_valid.csv
+   - !ref <csv_folder>/n20em_train.csv
 
 # Training parameters
 number_of_epochs: 10
 lr: 0.0003
 lr_wav2vec: 0.00001
-ctc_weight: 0.2 
+ctc_weight: 0.2
 sorting: ascending # descending
 auto_mix_prec: False
 sample_rate: 16000
 
-
+save_feat: False
+save_feat_folder: data/feats
 # With data_parallel batch_size is split into N jobs
 # With DDP batch_size is multiplied by N jobs
 # Must be 3 per GPU to fit 32GB of VRAM
@@ -95,23 +89,23 @@ enc: !new:speechbrain.lobes.models.VanillaNN.VanillaNN
    dnn_blocks: !ref <dnn_layers>
    dnn_neurons: !ref <dnn_neurons>
 
-wav2vec2: !new:speechbrain.lobes.models.huggingface_wav2vec.HuggingFaceWav2Vec2
-   source: !ref <wav2vec2_hub>
-   output_norm: True
-   freeze: !ref <freeze_wav2vec>
-   save_path: !ref <save_folder>/wav2vec2_checkpoint
+# wav2vec2: !new:speechbrain.lobes.models.huggingface_wav2vec.HuggingFaceWav2Vec2
+#    source: !ref <wav2vec2_hub>
+#    output_norm: True
+#    freeze: !ref <freeze_wav2vec>
+#    save_path: !ref <save_folder>/wav2vec2_checkpoint
 
 #####
 # Uncomment this block if you prefer to use a Fairseq pretrained model instead
 # of a HuggingFace one. Here, we provide an URL that is obtained from the
 # Fairseq github for the multilingual XLSR.
-#
-#wav2vec2_url: https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_vox_960h_pl.pt
-#wav2vec2: !new:speechbrain.lobes.models.fairseq_wav2vec.FairseqWav2Vec2
-#    pretrained_path: !ref <wav2vec2_url>
-#    output_norm: True
-#    freeze: False
-#    save_path: !ref <save_folder>/wav2vec2_checkpoint/model.pt
+
+wav2vec2_url: https://dl.fbaipublicfiles.com/avhubert/model/lrs3_vox/vsr/self_large_vox_433h.pt
+wav2vec2: !new:speechbrain.lobes.models.fairseq_wav2vec.FairseqAVHubertFinetune
+   pretrained_path: !ref <wav2vec2_url>
+   output_norm: True
+   freeze: False
+   save_path: self_large_vox_433h.pt
 
 emb: !new:speechbrain.nnet.embedding.Embedding
     num_embeddings: !ref <output_neurons>
@@ -168,6 +162,15 @@ lm_model: !new:speechbrain.lobes.models.RNNLM.RNNLM
     dnn_neurons: !ref <lm_dnn_neurons>
     return_hidden: True # for inference
 
+# greedy_searcher: !new:speechbrain.decoders.seq2seq.S2SRNNGreedySearcher
+#     embedding: !ref <emb>
+#     decoder: !ref <dec>
+#     linear: !ref <seq_lin>
+#     bos_index: !ref <bos_index>
+#     eos_index: !ref <eos_index>
+#     min_decode_ratio: !ref <min_decode_ratio>
+#     max_decode_ratio: !ref <max_decode_ratio>
+
 greedy_searcher: !new:speechbrain.decoders.seq2seq.S2SRNNBeamSearchLM
     embedding: !ref <emb>
     decoder: !ref <dec>
@@ -179,7 +182,7 @@ greedy_searcher: !new:speechbrain.decoders.seq2seq.S2SRNNBeamSearchLM
     blank_index: !ref <blank_index>
     min_decode_ratio: !ref <min_decode_ratio>
     max_decode_ratio: !ref <max_decode_ratio>
-    beam_size: 512 #!ref <beam_size>
+    beam_size: 512
     # add parameters
     eos_threshold: 100.0
     using_max_attn_shift: True
@@ -199,7 +202,7 @@ beam_searcher: !new:speechbrain.decoders.seq2seq.S2SRNNBeamSearchLM
     blank_index: !ref <blank_index>
     min_decode_ratio: !ref <min_decode_ratio>
     max_decode_ratio: !ref <max_decode_ratio>
-    beam_size: 512 # 512
+    beam_size: 512
     # add parameters
     eos_threshold: 100.0
     using_max_attn_shift: True
@@ -215,6 +218,7 @@ model: !new:torch.nn.ModuleList
 adam_opt_class: !name:torch.optim.Adam
     lr: !ref <lr>
 
+    
 wav2vec_opt_class: !name:torch.optim.Adam
    lr: !ref <lr_wav2vec>
 
@@ -267,7 +271,7 @@ cer_computer: !name:speechbrain.utils.metric_stats.ErrorRateStats
 
 pretrained_lm_path: !PLACEHOLDER # e,g./path/to/RNNLM
 pretrainer: !new:speechbrain.utils.parameter_transfer.Pretrainer
-   collect_in: !ref <save_folder>/duration28
+   collect_in: !ref <save_folder>/lm
    loadables:
       lm: !ref <lm_model>
    paths:
