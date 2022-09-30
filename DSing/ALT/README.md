@@ -13,7 +13,7 @@ python dsing_prepare.py --data_folder /path/to/DSing --duration_threshold 28
 
 2. Train the audio-only ALT system for DSing dataset, run:
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2.yaml --data_parallel_backend --data_folder /path/to/dsing --pretrained_lm_path /path/to/RNNLM --save_model --duration_threshold 28
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2.yaml --data_parallel_backend --data_folder /path/to/dsing --pretrained_lm_path /path/to/RNNLM --save_model True --duration_threshold 28
 ```
 The option `--save_model` is used to separately save the model to the folder `DSing/save_model/` besides the CKPT files for the usage of N20EM experiments.
 
@@ -24,6 +24,6 @@ We use four A5000 GPUs (each has 23 GB) to run experiments. To facilitate the tr
 ## Results
 | Release | hyperparams file | Val. WER | Test WER | Model link | GPUs |
 |:-------------:|:---------------------------:| -----:| -----:| --------:| :-----------:|
-| 22-09-29 | train_with_wav2vec.yaml |  12.57 | 14.24 | https://drive.google.com/drive/folders/1xxE4lf4ePxVV1DYeQ_d2Mf-q8P6yjcW_?usp=sharing | 4xA5000 23GB |
+| 22-09-29 | train_wav2vec2.yaml |  12.57 | 14.24 | https://drive.google.com/drive/folders/1xxE4lf4ePxVV1DYeQ_d2Mf-q8P6yjcW_?usp=sharing | 4xA5000 23GB |
 
 Note: The performance is slightly better than our report in our paper. Feel free to adjust the hyper-parameters to make the performance better.
