@@ -83,7 +83,5 @@ if __name__ == "__main__":
     parser.add_argument("--save_folder", type=str, default="data/n20em", help="The saved path for prepared text corpora")
     args = parser.parse_args()
 
-    data_folder = os.path.join(args.data_folder, "utterance_level")
-    save_folder = args.save_folder
     # prepare clean data
-    prepare_text_by_songs(root=data_folder, save_folder=save_folder)
+    prepare_text_by_songs(root=args.data_folder, save_folder=args.save_folder)

@@ -82,7 +82,7 @@ The resulting folder should be organized as:
         ├── accomp.wav
     ├── id2
     ├── ...
-├── meta_data.json
+├── metadata_split_by_song.json
 ```
 
 NOTE: Please make sure the audio input to model is 16 kHz and has mono-channel. The video input to model is 25 fps.

@@ -125,6 +125,5 @@ if __name__ == "__main__":
     parser.add_argument("--data_folder", type=str, default="/path/to/N20EM", help="The saved path for N20EM folder")
     args = parser.parse_args()
 
-    root = os.path.join(args.data_folder, "utterance_level")
     # prepare clean data
-    prepare_vlt_by_songs(root)
+    prepare_vlt_by_songs(root=args.data_folder)
