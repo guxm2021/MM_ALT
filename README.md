@@ -76,13 +76,14 @@ The resulting folder should be organized as:
 /path/to/N20EM
 ├── data
     ├── id1
-        ├── audio.wav
+        ├── downsample_audio.wav
+        ├── downsample_accomp.wav
         ├── video.mp4
         ├── imu.csv
-        ├── accomp.wav
     ├── id2
     ├── ...
 ├── metadata_split_by_song.json
+├── README.txt
 ```
 
 NOTE: Please make sure the audio input to model is 16 kHz and has mono-channel. The video input to model is 25 fps.
