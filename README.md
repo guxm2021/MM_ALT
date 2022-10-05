@@ -69,7 +69,7 @@ The resulting folder should be organized as:
 ```
 
 ### N20EM Dataset
-N20EM dataset is curated by ourselves for our multimodal ALT task. The dataset is released here: https://zenodo.org/record/6905332#.Yz0zWC0Rr0o.
+N20EM dataset is curated by ourselves for our multimodal ALT task. The dataset is released here: https://zenodo.org/record/6905332.
 
 The resulting folder should be organized as:
 ```
