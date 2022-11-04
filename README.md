@@ -1,7 +1,7 @@
 # MM-ALT: A Multimodal Automatic Lyric Transcription System
 This is the author's official PyTorch implementation for MM-ALT. This repo contains code for experiments in the **ACM MM 2022 (Oral)** paper:
 
-[MM-ALT: A Multimodal Automatic Lyric Transcription System](https://guxm2021.github.io/guxm.github.io/pdf/ACMMM2022.pdf)
+[MM-ALT: A Multimodal Automatic Lyric Transcription System](https://dl.acm.org/doi/10.1145/3503161.3548411)
 
 
 ## Project Description
@@ -113,7 +113,7 @@ We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), [Fa
 **Transfer Learning of wav2vec 2.0 for Automatic Lyric Transcription**<br>
 Longshen Ou*, Xiangming Gu*, Ye Wang<br>
 *International Society for Music Information Retrieval Conference (ISMIR), 2022*<br>
-[[paper](https://guxm2021.github.io/guxm.github.io/pdf/ISMIR2022.pdf)][[code](https://github.com/guxm2021/ALT_SpeechBrain)]
+[[paper](https://guxm2021.github.io/pdf/ISMIR2022.pdf)][[code](https://github.com/guxm2021/ALT_SpeechBrain)]
 
 ## License
 MM-ALT is released under the Apache License, version 2.0.
