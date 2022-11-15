@@ -99,10 +99,11 @@ You may need to create csv files according to our guidance in `<dataset>/<task>`
 ## Citation
 If you use MM-ALT or this codebase in your own work, please cite our paper:
 ```BibTex
-@article{gu2022mm,
-  title={MM-ALT: A Multimodal Automatic Lyric Transcription System},
+@inproceedings{gu2022mm,
+  title={Mm-alt: A multimodal automatic lyric transcription system},
   author={Gu, Xiangming and Ou, Longshen and Ong, Danielle and Wang, Ye},
-  journal={arXiv preprint arXiv:2207.06127},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  pages={3328--3337},
   year={2022}
 }
 ```
