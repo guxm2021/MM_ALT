@@ -10,7 +10,7 @@ def main():
 
     # m = nn.LSTM(input_size=256, hidden_size=512, num_layers=2,
     #             bias=True, batch_first=True, dropout=0.0, bidirectional=True)
-    x = torch.rand(size=(16, 8, 500))
+    x = torch.rand(size=(16, 8, 500)) # Dummy data for 1s; the input signal is 500 Hz
     y = m(x)
     print(y.shape)
 
