@@ -34,7 +34,7 @@ pip install --editable .
 ```
 pip install transformers
 pip install datasets
-pip install sklearn
+pip install scikit-learn
 ```
 
 ### AV-Hubert
