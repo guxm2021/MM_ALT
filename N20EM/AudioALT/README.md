@@ -30,10 +30,10 @@ python audio_prepare.py --data_folder /path/to/n20em
 
 2. Train the audio-only ALT system for N20EM dataset, run:
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3 python train_with_wav2vec.py hparams/train_with_wav2vec.yaml --data_parallel_backend --data_folder /path/to/n20em --pretrained_lm_path /path/to/RNNLM --pretrain_dsing False --attempt 1
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2.yaml --data_parallel_backend --data_folder /path/to/n20em --pretrained_lm_path /path/to/RNNLM --pretrain_dsing False --attempt 1
 ```
 
 3. Train the audio-only ALT system for N20EM dataset with pretrained model on DSing dataset, run:
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3 python train_with_wav2vec.py hparams/train_with_wav2vec.yaml --data_parallel_backend --data_folder /path/to/n20em --pretrained_lm_path /path/to/RNNLM --pretrain_dsing True --attempt 2
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train_wav2vec2.py hparams/train_wav2vec2.yaml --data_parallel_backend --data_folder /path/to/n20em --pretrained_lm_path /path/to/RNNLM --pretrain_dsing True --attempt 2
 ```
