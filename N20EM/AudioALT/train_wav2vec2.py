@@ -32,16 +32,12 @@ class ASR(sb.Brain):
                 wavs = self.hparams.augmentation(wavs, wav_lens)
 
         # Forward pass
-        # with torch.cuda.amp.autocast(enabled=True):
         feats = self.modules.wav2vec2(wavs)
         x = self.modules.enc(feats)
 
         # output layer for ctc log-probabilities
         logits = self.modules.ctc_lin(x)
         p_ctc = self.hparams.log_softmax(logits)
-
-        # save features
-        # torch.save(feats[0].detach().cpu(), os.path.join("data", "feats", batch.id[0] + ".pt"))
 
         e_in = self.modules.emb(tokens_bos)
         h, _ = self.modules.dec(e_in, x, wav_lens)
@@ -55,20 +51,11 @@ class ASR(sb.Brain):
             hyps = sb.decoders.ctc_greedy_decode(
                 p_ctc, wav_lens, blank_id=self.hparams.blank_index
             )
-            # self.modules.lm_model.to(self.device)
-            # hyps, scores = self.hparams.greedy_searcher(x, wav_lens)
             return p_ctc, p_seq, wav_lens, hyps
 
         elif stage == sb.Stage.TEST:
-            if self.hparams.save_feat:
-                hyps = sb.decoders.ctc_greedy_decode(
-                       p_ctc, wav_lens, blank_id=self.hparams.blank_index
-                )
-                # save features
-                torch.save(feats[0].detach().cpu(), os.path.join(self.hparams.save_feat_folder, batch.id[0] + ".pt"))
-            else:
-                self.modules.lm_model.to(self.device)
-                hyps, scores = self.hparams.beam_searcher(x, wav_lens)
+            self.modules.lm_model.to(self.device)
+            hyps, scores = self.hparams.beam_searcher(x, wav_lens)
             return p_ctc, p_seq, wav_lens, hyps
 
         return p_ctc, p_seq, wav_lens

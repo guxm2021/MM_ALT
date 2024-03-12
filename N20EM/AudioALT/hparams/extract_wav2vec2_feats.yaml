@@ -13,19 +13,24 @@ label_encoder: ../label_encoder.txt
 # URL for the biggest Fairseq english wav2vec2 model.
 wav2vec2_hub: facebook/wav2vec2-large-960h-lv60-self
 
-save_model: False
+save_model: True
 save_model_folder: save_model
+
+snr_db: -10
+add_noise: False
 
 # Data files
 data_folder: !PLACEHOLDER # e,g./path/to/n20em
 # noise/ris dataset will automatically be downloaded
 data_folder_rirs: !ref <data_folder>
 ckpt_interval_minutes: 25 # save checkpoint every N min
-csv_folder: data/songs
+csv_folder: data/accompany
 train_csv: !ref <csv_folder>/n20em_train.csv
 valid_csv: !ref <csv_folder>/n20em_valid.csv
 test_csv:
    - !ref <csv_folder>/n20em_test.csv
+   - !ref <csv_folder>/n20em_valid.csv
+   - !ref <csv_folder>/n20em_train.csv
 
 # Training parameters
 number_of_epochs: 10
@@ -40,7 +45,7 @@ sample_rate: 16000
 # With data_parallel batch_size is split into N jobs
 # With DDP batch_size is multiplied by N jobs
 # Must be 1 per GPU to fit 23GB of VRAM
-batch_size: 4
+batch_size: 1
 valid_batch_size: 1
 test_batch_size: 1
 

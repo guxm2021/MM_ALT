@@ -4,12 +4,9 @@ import csv
 import random
 import json
 import argparse
-from collections import Counter
 import logging
 import torchaudio
-from speechbrain.utils.data_utils import download_file, get_all_files
 logger = logging.getLogger(__name__)
-OPT_FILE = "opt_dsing_prepare.pkl"
 SAMPLERATE = 16000
 
 
@@ -202,4 +199,5 @@ if __name__ == "__main__":
 
     # prepare clean data
     prepare_alt_by_songs(root=args.data_folder)
+    # prepare noisy data with accompaniments
     prepare_alt_by_songs_accompany(root=args.data_folder)

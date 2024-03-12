@@ -3,6 +3,8 @@ This is the author's official PyTorch implementation for MM-ALT. This repo conta
 
 [MM-ALT: A Multimodal Automatic Lyric Transcription System](https://dl.acm.org/doi/10.1145/3503161.3548411)
 
+And this repo also covers the ALT experiments in our journal extension paper: [Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing]()
+
 
 ## Project Description
 Automatic lyric transcription (ALT) is a nascent field of study attracting increasing interest from both the speech and music information retrieval communities, given its significant application potential. However, ALT with audio data alone is a notoriously difficult task due to instrumental accompaniment and musical constraints resulting in degradation of both the phonetic cues and the intelligibility of sung lyrics. To tackle this challenge, we propose the MultiModal Automatic Lyric Transcription system (MM-ALT), together with a new dataset, N20EM, which consists of audio recordings, videos of lip movements, and inertial measurement unit (IMU) data of an earbud worn by the performing singer. 
@@ -105,6 +107,13 @@ If you use MM-ALT or this codebase in your own work, please cite our paper:
   journal={arXiv preprint arXiv:2207.06127},
   year={2022}
 }
+
+@article{gu2024automatic,
+      title={Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing}, 
+      author={Gu, Xiangming and Ou, Longshen and Zeng, Wei and Zhang, Jianan and Wong, Nicholas and Wang, Ye},
+      journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+      year={2024}
+}
 ```
 We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), [Fairseq](https://arxiv.org/pdf/1904.01038.pdf), and [AV-Hubert](https://arxiv.org/pdf/2201.02184.pdf), please also consider citing their works.
 
@@ -114,6 +123,11 @@ We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), [Fa
 Longshen Ou*, Xiangming Gu*, Ye Wang<br>
 *International Society for Music Information Retrieval Conference (ISMIR), 2022*<br>
 [[paper](https://guxm2021.github.io/pdf/ISMIR2022.pdf)][[code](https://github.com/guxm2021/ALT_SpeechBrain)]
+
+**Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing**<br>
+Xiangming Gu, Longshen Ou, Wei Zeng, Jianan Zhang, Nicholas Wong, Ye Wang<br>
+*ACM Transactions on Multimedia Computing, Communications and Applications (TOMM), 2024*<br>
+[[paper]()][[code](https://github.com/guxm2021/SVT_SpeechBrain)]
 
 ## License
 MM-ALT is released under the Apache License, version 2.0.
