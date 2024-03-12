@@ -3,7 +3,7 @@ This is the author's official PyTorch implementation for MM-ALT. This repo conta
 
 [MM-ALT: A Multimodal Automatic Lyric Transcription System](https://dl.acm.org/doi/10.1145/3503161.3548411)
 
-And this repo also covers the ALT experiments in our journal extension paper: [Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing]()
+And this repo also covers the ALT experiments in our journal extension paper: [Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing](https://dl.acm.org/doi/10.1145/3651310)
 
 
 ## Project Description
@@ -128,7 +128,7 @@ Longshen Ou*, Xiangming Gu*, Ye Wang<br>
 **Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing**<br>
 Xiangming Gu, Longshen Ou, Wei Zeng, Jianan Zhang, Nicholas Wong, Ye Wang<br>
 *ACM Transactions on Multimedia Computing, Communications and Applications (TOMM), 2024*<br>
-[[paper]()][[code](https://github.com/guxm2021/SVT_SpeechBrain)]
+[[paper](https://dl.acm.org/doi/10.1145/3651310)][[code](https://github.com/guxm2021/SVT_SpeechBrain)]
 
 ## License
 MM-ALT is released under the Apache License, version 2.0.
