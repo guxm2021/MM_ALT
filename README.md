@@ -113,6 +113,7 @@ If you use MM-ALT or this codebase in your own work, please cite our paper:
       title={Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing}, 
       author={Gu, Xiangming and Ou, Longshen and Zeng, Wei and Zhang, Jianan and Wong, Nicholas and Wang, Ye},
       journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+      publisher={ACM New York, NY},
       year={2024}
 }
 ```
