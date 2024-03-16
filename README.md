@@ -110,11 +110,11 @@ If you use MM-ALT or this codebase in your own work, please cite our paper:
 }
 
 @article{gu2024automatic,
-      title={Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing}, 
-      author={Gu, Xiangming and Ou, Longshen and Zeng, Wei and Zhang, Jianan and Wong, Nicholas and Wang, Ye},
-      journal={ACM Transactions on Multimedia Computing, Communications and Applications},
-      publisher={ACM New York, NY},
-      year={2024}
+  title={Automatic Lyric Transcription and Automatic Music Transcription from Multimodal Singing}, 
+  author={Gu, Xiangming and Ou, Longshen and Zeng, Wei and Zhang, Jianan and Wong, Nicholas and Wang, Ye},
+  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+  publisher={ACM New York, NY},
+  year={2024}
 }
 ```
 We borrow the code from [SpeechBrain](https://arxiv.org/pdf/2106.04624.pdf), [Fairseq](https://arxiv.org/pdf/1904.01038.pdf), and [AV-Hubert](https://arxiv.org/pdf/2201.02184.pdf), please also consider citing their works.
